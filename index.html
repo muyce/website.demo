@@ -1,18 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>hello</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>btc market price!!!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #f4b400;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .header p {
+            color: #888888;
+            margin: 5px 0 0 0;
+            font-size: 0.9rem;
+        }
+        .chart-wrapper {
+            width: 100%;
+            max-width: 900px;
+            height: 550px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 1px solid #2a2a2a;
+        }
+        /* Mobile layout optimization */
+        @media (max-width: 600px) {
+            .chart-wrapper {
+                height: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to muyce!!!</h1>
-        <h1>Feature not implemented yet stay tuned!!!</h1>
 
-    <a href="https://bsky.app/profile/muyce.com">Visit my Bluesky channel!</a>
-    
-    
-    <img src="mememan.png">
-    <h1>hehehehe!!!</h1>
-    
+<div class="header">
+    <h1>Muyce Live Chart</h1>
+    <p>Bitcoin (BTC / USD) Real-Time Analytics</p>
+</div>
+
+<!-- TradingView Widget Container -->
+<div class="chart-wrapper">
+    <div id="tradingview_btc_chart" style="width: 100%; height: 100%;"></div>
+</div>
+
+<!-- Embedded TradingView Library Script -->
+<script type="text/javascript" src="https://tradingview.com"></script>
+<script type="text/javascript">
+    new TradingView.widget({
+        "width": "100%",
+        "height": "100%",
+        "symbol": "BINANCE:BTCUSDT",
+        "interval": "D",
+        "timezone": "Asia/Kuala_Lumpur",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "hide_side_toolbar": false,
+        "allow_symbol_change": true,
+        "container_id": "tradingview_btc_chart"
+    });
+</script>
 
 </body>
 </html>
